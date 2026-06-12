@@ -30,7 +30,7 @@ pipeline {
 
                 docker run -d \
                     --name demo \
-                    -p 8080:8080 \
+                    -p 1010:1010 \
                     demo:${GIT_COMMIT}
                 '''
             }
