@@ -4,6 +4,12 @@ pipeline {
 
     stages {
 
+        stage('拉取代码') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('构建jar包') {
             steps {
                 sh 'mvn clean package -DskipTests'
