@@ -4,12 +4,6 @@ pipeline {
 
     stages {
 
-        stage('拉取代码') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('构建jar包') {
             steps {
                 sh 'mvn clean package -DskipTests'
@@ -18,7 +12,7 @@ pipeline {
 
         stage('打包Docker') {
             steps {
-                sh 'docker build -t demo:${BUILD_NUMBER} .'
+                sh 'docker build -t demo:${GIT_COMMIT} .'
             }
         }
 
